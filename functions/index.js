@@ -1,3 +1,4 @@
+
 const functions = require('firebase-functions');
 
 const app = require('express')();
@@ -11,6 +12,7 @@ const { signup, login, uploadImage } = require('./handlers/users')
 //Harvest Routes
 app.get('/harvests', getAllHarvests)
 app.post('/harvest', FBAuth, postOneHarvest)
+app.post('/harvest/image',  uploadImage)
 
 //Users Routes
 app.post('/signup', signup)
