@@ -12,6 +12,8 @@ const BusBoy = require('busboy')
 
 
 exports.signup = (req, res) => {
+
+    console.log("made it here to the signup backend")
     const newUser = {
       email: req.body.email,
       password: req.body.password,
@@ -19,6 +21,8 @@ exports.signup = (req, res) => {
       handle: req.body.handle,
   
     }
+    
+
   const { valid, errors } = validateSignupData(newUser)
   if(!valid) return res.status(400).json(errors)
 
