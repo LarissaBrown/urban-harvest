@@ -8,12 +8,12 @@ export const HarvestContext = React.createContext();
 
 
 
-export default function HarvestProvider({ children }) {
+function HarvestProvider(props) {
 
 
-    const [harvest, setHarvest] = useState({ body: 'This is about the harvest.', harvestImg: 'imgUrl', userHandle: 'FarmerName' });
-    const [harvests, setHarvests] = useState([{ body: 'This is about the harvest.', harvestImg: 'imgUrl', userHandle: 'FarmerName' }, { body: 'This is about the harvest.', harvestImg: 'imgUrl', userHandle: 'FarmerName' }]);
-
+    const [harvest, setHarvest] = useState({});
+    const [harvests, setHarvests] = useState([]);
+    const [initState, setInitState] = useState([{ body: '', harvestImg: '', userHandle: '' }])
 
     const getAllHarvests = () => {
         userAxios.get(`/harvests`)
@@ -78,6 +78,7 @@ export default function HarvestProvider({ children }) {
         value={{
             harvests,
             harvest,
+            initState,
             getAllHarvests,
             getUserHarvests,
             deleteHarvest,
@@ -85,7 +86,8 @@ export default function HarvestProvider({ children }) {
             addHarvest,
             getHarvest
         }}>
-        {children}
+        {props.children}
     </HarvestContext.Provider>;
 
 }
+export {HarvestProvider}

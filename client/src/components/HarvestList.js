@@ -15,7 +15,7 @@ function HarvestList() {
    
     useEffect(() => {
 
-        getAllHarvests([])
+        getAllHarvests()
         console.log('useEffectHarvests', harvests)
 
     }, []
@@ -25,8 +25,10 @@ function HarvestList() {
         <div className="currentHarvests">
 
             <h1>Current Available Harvests</h1>
+            <div className="harvests">
             { harvests.map(harvest => <Harvest image={harvest.harvestImg} label={harvest.body} farmer={harvest.userHandle}
                 key={v4()} />)}
+            </div>
         </div>
     )
 }
