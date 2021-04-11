@@ -27,7 +27,7 @@ const [userState, setUserState] = useState(initState)
     
 function signup(credentials){
     console.log('credentials', credentials)
-    userAxios.post("/signup", credentials)
+    axios.post("/signup", credentials)
     .then(res => {
     
         const { user, token } = res.data
@@ -46,7 +46,7 @@ function signup(credentials){
 }
 
 function login(credentials){
-    userAxios.post('/login', credentials)
+    axios.post('/login', credentials)
     .then(res => {
         const {user, token} = res.data
         localStorage.setItem('token', token)
