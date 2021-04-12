@@ -1,26 +1,55 @@
-import React, { useState }from 'react'
+import React, { useState, useEffect, useRef}from 'react'
 import  Unsplash,{ toJson } from "unsplash-js"
 import {v4} from 'uuid'
-import DragMove from "./DragMove"
-
-
+import Panel from './Panel/Panel'
+//import DragMove from "./DragMove"
+//import Resizer from "./Panel/Resizer"
 //import Access_Key from './.env'
-
 
 
 export default function FarmerHarvestPhotos(props) {
     const [query, setQuery] = useState("")
     const [ pics, setPics ] = useState([])
-    const [translate, setTranslate] = useState({
-        x: 0,
-        y: 0
-      });
-    
+    const [ mouseDown, setMouseDown ] = useState(false)
+    const {isClicked} = props
+    const panelRef = useRef(null)
+
+    const handleDrag = (movementX, movementY)=>{
+      const panel = panelRef.current
+      if(!panel) return
+      
+      const { x, y } = panel.getBoundingClientRect()
+
+      panel.style.left = `${x + movementX}px`
+      panel.style.top = `${y + movementY}px`
+  }
+    useEffect(() => {
+      const handleMouseUp = () => setMouseDown(false)
+      window.addEventListener('mouseup', handleMouseUp)
+      return () => {
+        window.addEventListener('mouseup', handleMouseUp)
+      }
+    }, [])
+
+    useEffect(() => {
+      const handleMouseMove = (e) => handleDrag(e.movementX, e.movementY)
+
+      if(mouseDown) {
+        window.addEventListener('mousemove', handleMouseMove)
+      }
+      return () => {
+        window.removeEventListener('mousemove',  handleMouseMove)
+      }
+    }, [mouseDown, handleDrag])
+
+    const handleMouseDown = () => setMouseDown(true)
+
+
     const unsplash = new Unsplash({
     accessKey: "7LtZFhlWzGy0OPYYT0GVrfrXXt7yrVIsDzsPTvl93lk" 
     //...other fetch options
      // `fetch` options to be sent with every request
-  //headers: { 'X-Custom-Header': 'foo' },
+    //headers: { 'X-Custom-Header': 'foo' },
     });
 
   
@@ -37,24 +66,21 @@ export default function FarmerHarvestPhotos(props) {
             setPics(json.results)
         })
     };
-    //searchPhotos(unsplash)
 
-   
-    
-      const handleDragMove = (e) => {
-        setTranslate({
-          x: translate.x + e.movementX,
-          y: translate.y + e.movementY
-        });
-      };
+
+    //searchPhotos(unsplash)
     
     
     return(
-        <>
-   <DragMove onDragMove={handleDragMove}>
-    <div style={{
-              transform: `translateX(${translate.x}px) translateY(${translate.y}px)`
-            }} >
+      <>
+  <Panel >
+    <div onMouseDown={handleMouseDown} className="panel_container" 
+         style={isClicked
+         ? 
+         {visibility: "visible", position: 'absolute'} 
+         :
+          {visibility: "hidden", position: 'absolute'}}>
+           
         <div className='unsplash-App'>
             <h1 className="unsplash-title">Harvest Image Search</h1>
 
@@ -74,7 +100,7 @@ export default function FarmerHarvestPhotos(props) {
             <p>Search</p>
             </button>
         </form>
-        <div className="card-list">
+        <div className="card-list" >
           {
           pics.map((pic) => 
             <div key={v4()} className="card">
@@ -89,9 +115,9 @@ export default function FarmerHarvestPhotos(props) {
           }
         </div>
         </div>
-    </div>
-   </DragMove>  
-   </>    
+ </div>
+  </Panel>   
+  </> 
    
   );
 }

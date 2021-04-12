@@ -28,7 +28,7 @@ export default function Signup(props) {
    
 
     return (
-        <Grid className='signup-container'>
+        <Grid item xs={8} sm={3} className='signup-container'>
                    <form onSubmit={handleSubmit} className={hideform? 'hide-container':"signup-form"}>
                 <input
                     type="text"

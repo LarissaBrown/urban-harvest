@@ -8,11 +8,16 @@ import { Link } from 'react-router-dom'
 import Signup from '../pages/Signup'
 import Login from '../pages/Login'
 import FarmerHarvestPhotos from "./FarmerHarvestPhotos.js"
+import { Route, Switch } from 'react-router-dom'
+import FarmerHarvestList from '../components/FarmerHarvestList'
+
 
 function Navbar(props){
 
 const [toggle, setToggle]= useState(true)
 const [ hideform, setHideform ] = useState(false)
+const [isClicked, setIsClicked] = useState(false)
+const [myHarvestIsClicked, setMyHarvestIsClicked] = useState(true)
 
 const handleToggleLogin=()=>{
 
@@ -27,11 +32,13 @@ const handleToggleSignup=()=>{
 
 }
 
+
 return (
     <AppBar className='nav-container'>
         <Toolbar>
             <Button 
             color="inherit"  
+            onClick={()=> setIsClicked(false)}
             component={Link} to='/'>
                 Home
             </Button>
@@ -56,21 +63,44 @@ return (
             :
             <Login  color="inherit" setHideform={setHideform} hideform={hideform}/>
             }
-            <div>
+            <div >
                 <Button 
                 className={!hideform &&'hide-container'} 
                 color="inherit" 
                 component={Link} 
-                to='/farmer-harvest'>
+                to='/farmer-harvest'
+                onClick={()=> setIsClicked(true)}
+                >
                     Farmer's Harvest Page
                 </Button>
+                <Button 
+                className={!hideform &&'hide-container'} 
+                color="inherit" 
+                component={Link} 
+                to='/farmer-harvest'
+                onClick={()=> setIsClicked(!isClicked)}
+                >
+                    Image Search
+                </Button>
+                <Button 
+                className={!hideform &&'hide-container'} 
+                color="inherit" 
+                component={Link} 
+                to='/farmer-harvest'
+                onClick={()=> setMyHarvestIsClicked(!myHarvestIsClicked)}
+                >
+                    My Harvests
+                </Button>
+              
                 
             </div>
         </Toolbar>
         <h1 className="header-text" >Urban Harvest</h1>
         <h2 className="no-waste">No waste is good waste.</h2>
-        {/* only have FarmerHarvestPhotos visible if user is logged in */}
-        <FarmerHarvestPhotos /> 
+        <>
+        <FarmerHarvestPhotos isClicked={isClicked} />
+        <FarmerHarvestList myHarvestIsClicked={myHarvestIsClicked}/>
+        </>
     </AppBar>
 )
 

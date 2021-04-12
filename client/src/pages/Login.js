@@ -26,7 +26,7 @@ export default function Login(props) {
     }
 
     return (
-        <Grid className="login-container">
+        <Grid item xs={8} sm={3} className="login-container">
            <form  color="inherit" onSubmit={handleSubmit} className={hideform? 'hide-container':"login-form"}>
                 <input
                     type="text"

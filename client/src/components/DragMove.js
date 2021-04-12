@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'
 
 
 
@@ -45,7 +46,17 @@ export default function DragMove(props) {
     </div>
   );
 }
+const { func, element, shape, bool, string } = PropTypes;
 
+DragMove.propTypes = {
+  onDragMove: func.isRequired,
+  onPointerDown: func,
+  onPointerUp: func,
+  onPointerMove: func,
+  children: element,
+  style: shape({}),
+  className: string,
+}
 DragMove.defaultProps = {
   onPointerDown: () => {},
   onPointerUp: () => {},
