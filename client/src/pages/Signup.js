@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react'
 import  { UserContext } from '../context/UserProvider'
+import Grid from '@material-ui/core/Grid'
 
 
-
-export default function Signup() {
+export default function Signup(props) {
   
 
     const {signup, user } = useContext(UserContext)
     const [inputs, setInputs] = useState(user)
-    
+    const { hideform, setHideform } = props
 
  
     function handleChange(e){
@@ -16,20 +16,20 @@ export default function Signup() {
         setInputs(prevInputs => ({
             ...prevInputs, 
             [name]: value
-        }))
+       }))
     }
 
     function handleSubmit(e){
         e.preventDefault()
-        signup(inputs)
-        setInputs("")
+         signup(inputs)
+         setHideform(true)
     }
 
    
 
     return (
-        <div class-name="signup-container">
-                   <form onSubmit={handleSubmit} className="signup-form">
+        <Grid item xs={8} sm={3} className='signup-container'>
+                   <form onSubmit={handleSubmit} className={hideform? 'hide-container':"signup-form"}>
                 <input
                     type="text"
                     value={user.handle}
@@ -55,6 +55,7 @@ export default function Signup() {
                     onChange={handleChange}
                     placeholder="Confirm Password"/>
                 <button>Sign Up</button>
-            </form></div>
+            </form>
+        </Grid >
     )
 }

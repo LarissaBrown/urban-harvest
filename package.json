@@ -6,12 +6,15 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "emailjs-com": "^2.6.4",
     "firebase": "^8.2.10",
     "firebase-admin": "^9.5.0",
     "firebase-functions": "^3.13.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "^4.0.1",
+    "react-useportal": "^1.0.14",
+    "unsplash-js": "^7.0.10",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -36,6 +39,7 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
+    ],
+    "proxy": "https://us-central1-urban-harvest-15357.cloudfunctions.net/api"
   }
 }

@@ -4,20 +4,17 @@ import Grid from '@material-ui/core/Grid'
 
 
 
+// if user is logged in then the link to Farmer's Page displays and a logout button displays while the login fields are hidden 
 
 export default function Home() {
 
 
     return(
 
-        <Grid container>
-            <Grid item sm={8} xs={12}>
-                <h1>Urban Harvest</h1>
-                <h2>No waste is good waste.</h2>
-            </Grid>
-            <Grid item sm={4} xs={12}>
-              <HarvestList />
-            </Grid>
+        <Grid container  className="home-container">
+            
+              <HarvestList/>
+          
         </Grid>
 
 
