@@ -63,8 +63,11 @@ function HarvestProvider(props) {
     ])
     const [harvest, setHarvest] = useState();
     const [harvests, setHarvests] = useState(initState);
-   
+    const [home, setHome] = useState(true)
+    const [myHarvestIsClicked, setMyHarvestIsClicked] = useState(false)
+    const [isClicked, setIsClicked]= useState(true)
 
+    
     const getAllHarvests = () => {
         userAxios.get(`/harvests`)
             .then(response => {
@@ -134,7 +137,13 @@ function HarvestProvider(props) {
             deleteHarvest,
             updateHarvest,
             addHarvest,
-            getHarvest
+            getHarvest,
+            myHarvestIsClicked,
+            setMyHarvestIsClicked,
+            home, 
+            setHome,
+            isClicked,
+            setIsClicked,
         }}>
         {props.children}
     </HarvestContext.Provider>;

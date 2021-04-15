@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import  { UserContext } from '../context/UserProvider'
-import Grid from '@material-ui/core/Grid'
+
 
 
 export default function Signup(props) {
@@ -28,34 +28,38 @@ export default function Signup(props) {
    
 
     return (
-        <Grid item xs={8} sm={3} className='signup-container'>
+        <div className="loginSignup">
                    <form onSubmit={handleSubmit} className={hideform? 'hide-container':"signup-form"}>
                 <input
+                     className="login-input"
                     type="text"
                     value={user.handle}
                     name="handle"
                     onChange={handleChange}
                     placeholder="Username"/>
                 <input
+                     className="login-input"
                     type="text"
                     value={user.email}
                     name="email"
                     onChange={handleChange}
                     placeholder="Email"/>
                 <input
+                     className="login-input"
                     type="text"
                     value={user.password}
                     name="password"
                     onChange={handleChange}
                     placeholder="Password"/>
                 <input
+                     className="login-input"
                     type="text"
                     value={user.confirmPassword}
                     name="confirmPassword"
                     onChange={handleChange}
                     placeholder="Confirm Password"/>
-                <button>Sign Up</button>
+                <button  className="login-input">Signup</button>
             </form>
-        </Grid >
+        </div>
     )
 }
