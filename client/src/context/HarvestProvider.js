@@ -1,13 +1,7 @@
 import React, {useState} from "react";
 import { userAxios} from "./UserProvider";
 
-
-
-
-
 export const HarvestContext = React.createContext();
-
-
 
 function HarvestProvider(props) {
 
@@ -72,12 +66,8 @@ function HarvestProvider(props) {
         userAxios.get(`/harvests`)
             .then(response => {
                 setHarvests([response.data]);
-
-
             })
             .catch(err => console.error(err));
-
-
     };
 
 
@@ -115,16 +105,12 @@ function HarvestProvider(props) {
             .catch(err => console.log(err.response.data.errMsg));
     };
 
-
-
-
     const addHarvest = (body) => {
         userAxios.post(`/api/harvest`, body).then(response => {
             setHarvests(prevHarvests => [...prevHarvests], response.data);
 
         }).catch(err => console.dir(err));
     };
-
 
 
     return <HarvestContext.Provider

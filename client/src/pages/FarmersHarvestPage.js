@@ -5,15 +5,15 @@ import FarmerHarvestList from '../components/FarmerHarvestList'
 
 
 
-export default function FarmersHarvestPage({...handleDrag}, {...handleMouseDown}) {
+export default function FarmersHarvestPage() {
  
   
     return(
 
         <div className="farmers-page-container">
             
-        <FarmerHarvestPhotos {...handleDrag} {...handleMouseDown}/>
-        <FarmerHarvestList {...handleDrag} {...handleMouseDown}/>
+        <FarmerHarvestPhotos />
+        <FarmerHarvestList />
        
           
         </div >
