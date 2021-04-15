@@ -1,31 +1,31 @@
 import React, { useState, useContext } from 'react'
-import  { UserContext } from '../context/UserProvider'
-import { HarvestContext } from '../context/HarvestProvider'
-import Grid from '@material-ui/core/Grid'
+// import  { UserContext } from '../context/UserProvider'
+// import { HarvestContext } from '../context/HarvestProvider'
+// import Grid from '@material-ui/core/Grid'
 
 
 export default function HarvestPublishing(props) {
   
 
-    const { user } = useContext(UserContext)
-    const { addHarvest } = useContext(HarvestContext)
-    const [inputs, setInputs] = useState(user)
-    const { hideform, setHideform } = props
+    // const { user } = useContext(UserContext)
+    // const { addHarvest } = useContext(HarvestContext)
+    // const [inputs, setInputs] = useState(user)
+    // const { hideform, setHideform } = props
 
  
-    function handleChange(e){
-        const { name, value } = e.target
-        setInputs(prevInputs => ({
-            ...prevInputs, 
-            [name]: value
-       }))
-    }
+    // function handleChange(e){
+    //     const { name, value } = e.target
+    //     setInputs(prevInputs => ({
+    //         ...prevInputs, 
+    //         [name]: value
+    //    }))
+    // }
 
-    function handleSubmit(e){
-        e.preventDefault()
-         addHarvest(inputs)
+    // function handleSubmit(e){
+    //     e.preventDefault()
+    //      addHarvest(inputs)
          
-    }
+    // }
 
    
 

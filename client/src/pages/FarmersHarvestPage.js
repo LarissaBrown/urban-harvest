@@ -1,20 +1,22 @@
 import React from 'react'
-import Grid from '@material-ui/core/Grid'
+
+import FarmerHarvestPhotos from "../components/FarmerHarvestPhotos.js"
+import FarmerHarvestList from '../components/FarmerHarvestList'
 
 
 
-
-
-export default function FarmersHarvestPage() {
-
-
+export default function FarmersHarvestPage({...handleDrag}, {...handleMouseDown}) {
+ 
+  
     return(
 
-        <Grid container  className="farmersHarvestPage-container">
+        <div className="farmers-page-container">
             
-              
+        <FarmerHarvestPhotos {...handleDrag} {...handleMouseDown}/>
+        <FarmerHarvestList {...handleDrag} {...handleMouseDown}/>
+       
           
-        </Grid>
+        </div >
    
     )
 }

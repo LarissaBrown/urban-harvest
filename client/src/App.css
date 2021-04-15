@@ -1,6 +1,5 @@
 
 
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,6 +11,7 @@ body {
   background-image: url("/Users/larissabrown/Desktop/Development/module-6/urban-harvest/client/src/components/radishes.jpg");
   z-index: 0;
   min-width: 74px;
+  box-sizing:border-box;
 }
 .App {
   position: relative;
@@ -21,25 +21,60 @@ body {
   flex-direction: column;
   font-size: calc(10+1vmin);
   min-width: 74px;
-  padding-top: 200px
+ 
+
+}
+
+.loginSignup {
+ position: relative;
+ width: 100%;
+ float: left;
+ display: flex;
+ flex-direction:row;
+ justify-content: left;
+  
 
 }
 .signup-form {
-  visibility: visible;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: right;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
 }
-.login-form {
-  visibility: visible;
+
+
+.login-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  position: relative;
+  width: 100%;
+  align-items:center;
+  flex-wrap: wrap;
+  
+  
 }
+#button-login #button-signup {
+  font-weight: bolder;
+}
+
 .hide-container {
-  display: none;
+  display: flex;
+  position: absolute;
+  justify-content: right;
   visibility: hidden
 }
 .home-container{
   display: flex;
   flex-direction: column;
+  width: 100%;
   padding: 1vh
  
 }
+
 
 .farmer-container {
   position: relative;
@@ -58,17 +93,7 @@ body {
   margin-left: 30px;
   
 }
-/* .MuiToolbar-root
-.MuiToolbar-regular 
-.MuiToolbar-gutters 
-.login-container
-.signup-container {
-  display: flex;
-  flex-direction: row;
- 
-  
-  
-} */
+
 
 .containerCurrentHarvests {
   position: relative;
@@ -172,26 +197,60 @@ textarea#message.message {
 
 
 }
-.panel_container {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 80%;
-  display: flex;
+.farmers-page-container {
+  width: 100%;
+  height: 2000px;
+}
+.farmerHarvest-App{
+  position:absolute;
+  float: right;
   align-items: center;
+  width: 500px;
+  height: auto;
   justify-content: center;
   flex-direction:column;
   background-color: rgba(255, 255, 255, 0.486);
-  cursor: pointer;
+  cursor: move;
+  border: 8px solid rgb(105, 80, 56);
 
 
 }
 
+.panel{
+  box-sizing: border-box;
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  font-size: 10px;
+
+  cursor: move;
+  padding: 0
+ 
+
+}
+/* .panel-content
+{
+  position: absolute;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  flex-direction:column;
+  cursor: move;
+  border: 8px solid rgb(105, 80, 56);
+} */
+/* .panel {
+  visibility: visible;
+} */
+
 .harvestImg {
   display: relative;
-  width: 90%;
+  width: 80%;
   margin-top: 10px;
-  z-index: 5;
   margin-bottom: 0;
   border: 5px solid rgb(252, 251, 250);
  
@@ -208,37 +267,27 @@ textarea#message.message {
  
 .unsplash-App {
   position: absolute;
-  top: 50px;
-  Left: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
-  min-width: 300px;
+  width: 300px;
+  height: auto;
   background-color: rgb(244, 244, 244);
-  color: #333;
-  z-index:90;
-  font-size: 10px;
-  cursor: pointer;
-  
+  margin: 0;
+  border: 8px solid rgb(105, 80, 56);
 }
-
-
-
 .unsplash-title {
+  position: relative;
   font-size: 1.5rem;
   font-family: "Roboto";
-  margin-bottom: 5px;
+  padding-top: 20px;
+  
+ 
 }
 
 .unsplash-form {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 80%;
   margin:0;
-  padding: 0;
+  padding: 10px;
 }
 
 .unsplash-label {
@@ -250,12 +299,12 @@ textarea#message.message {
 .unsplash-input{
   display: flex;
   position: relative;
-  width: 100%;
+  width: 90%;
   font-size: 1rem;
   padding: 0.5rem 0.5rem;
   line-height: 2.8rem;
   background-color: white;
-  margin-bottom: 1rem;
+  margin: 10px;
 }
  .unsplash-button{
   display: flex;
@@ -279,11 +328,13 @@ textarea#message.message {
 }
 
 .unsplash-card-list{
+  position: relative;
   column-count: 3;
  
 }
 
 .unsplash-card--image {
+  position: relative;
   flex: 100%;
   margin-top: 1rem;
   border-radius: 10px;
@@ -304,7 +355,15 @@ textarea#message.message {
     .unsplash-card-list {
         column-count: 1;
     }
+    .loginSignup {
+      position: fixed;
+    }
+    #button-home #button-login #button-signup {
+      position: relative;
+      margin-top: 100px;
+    }
 }
+
 .top-left {
   position: absolute;
   cursor: nwse-resize;
@@ -376,4 +435,49 @@ textarea#message.message {
   z-index: 1;
   left: 0;
   top: 0;
+}
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: rgba(248, 245, 245, 0.445);
+  position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 0;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bolder;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 13px;
+  top: 13px;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #f548cf;
+  color: white;
+}
+i {
+  padding: 15px;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import HarvestList from "../components/HarvestList"
-import Grid from '@material-ui/core/Grid'
+
 
 
 
@@ -11,11 +11,11 @@ export default function Home() {
 
     return(
 
-        <Grid container  className="home-container">
+        <div   className="home-container">
             
               <HarvestList/>
           
-        </Grid>
+        </div>
 
 
 
