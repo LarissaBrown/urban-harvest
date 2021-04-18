@@ -32,7 +32,7 @@ function App() {
 
     
     <div className="App">
-      
+     
        <div className="topnav">
       
       <a href="/"className="active">
@@ -46,13 +46,16 @@ function App() {
       </a>
       </div>
       <div className='containerCurrentHarvests'></div>
-    
+      
       <Switch >
           <Route exact path='/' component={home}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={Signup}/>
+      
           <Route exact path="/farmer-harvest" component={FarmersHarvestPage}/>
+     
       </Switch>
+     
     </div>
     
     
