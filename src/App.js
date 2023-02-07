@@ -41,9 +41,9 @@ function App() {
       <div id="myLinks"style={{display: "block"}} >
       <Navbar/>
       </div>
-        <a className="icon" onClick={handleHamburgerMenu}>
-        <i className="fa fa-bars"></i>
-      </a>
+        <button className="fa fa-bars" onClick={handleHamburgerMenu}>menu</button>
+        {/* <i className="fa fa-bars"></i>
+      </a> */}
       </div>
       <div className='containerCurrentHarvests'></div>
       

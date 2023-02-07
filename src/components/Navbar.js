@@ -12,7 +12,7 @@ function Navbar(props){
 
 const [toggle, setToggle]= useState(true)
 const [ hideform, setHideform ] = useState(true)
-const {isClicked, setIsClicked, home, setHome, myHarvestIsClicked, setMyHarvestIsClicked} = useContext(HarvestContext)
+const {isClicked, setIsClicked, setHome, myHarvestIsClicked, setMyHarvestIsClicked} = useContext(HarvestContext)
 
 
 const handleSignupLogin =()=> {
@@ -86,9 +86,6 @@ return (
             >
                 Signup
             </Button>
-   
-
-            
                 <Button 
                 className={!hideform &&'hide-container'} 
                 color="inherit" 

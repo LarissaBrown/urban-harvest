@@ -10,7 +10,7 @@ export default function HarvestPublishing(props) {
     const { user } = useContext(UserContext)
     const { addHarvest } = useContext(HarvestContext)
     const [inputs, setInputs] = useState(user)
-    const { hideform, setHideform } = props
+    // const { hideform, setHideform } = props
 
  
     function handleChange(e){
@@ -52,8 +52,8 @@ export default function HarvestPublishing(props) {
                     onChange={handleChange}
                     />
                 <button>Publish</button>
-            </form> */}
-            {/* </div> 
+            </form>
+             </div> 
         </Grid >
     )
 }

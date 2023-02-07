@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useContext } from "react";
 import Unsplash, { toJson } from "unsplash-js";
 import { v4 } from "uuid";
 import { HarvestContext } from "../context/HarvestProvider";
@@ -8,7 +8,7 @@ export default function FarmerHarvestPhotos(props) {
   const [query, setQuery] = useState("");
   const [pics, setPics] = useState([]);
   const [title, setTitle] = useState("");
-  const [value, setValue] = useState("");
+  const [value] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const { isClicked } = useContext(HarvestContext);
 
@@ -35,7 +35,7 @@ export default function FarmerHarvestPhotos(props) {
   };
 
   const handleClick = e => {
-    const { name, value } = e.target;
+    const { name } = e.target;
     if (name === "search") {
       return (
         <div>

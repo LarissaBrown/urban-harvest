@@ -8,7 +8,7 @@ function HarvestList() {
 
   useEffect(() => {
     getAllHarvests();
-  }, []);
+  }, [getAllHarvests]);
 
   return (
     <div className="harvestMap">

@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   align-items: center;
-  background-image: url("/Users/larissabrown/Desktop/Development/module-6/urban-harvest/client/src/components/radishes.jpg");
+  background-image: url("./components/radishes.jpg");
   z-index: 0;
   min-width: 74px;
   box-sizing:border-box;
