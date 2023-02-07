@@ -45,7 +45,7 @@ function App() {
         {/* <i className="fa fa-bars"></i>
       </a> */}
       </div>
-      <div className='containerCurrentHarvests'></div>
+      <div className="containerCurrentHarvests"></div>
       
       <Switch >
           <Route exact path='/' component={home}/>

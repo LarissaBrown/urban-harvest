@@ -29,7 +29,7 @@ export default function Signup(props) {
 
     return (
         <div className="loginSignup">
-                   <form onSubmit={handleSubmit} className={hideform? 'hide-container':"signup-form"}>
+                   <form onSubmit={handleSubmit} className={hideform? "hide-container":"signup-form"}>
                 <input
                      className="login-input"
                     type="text"

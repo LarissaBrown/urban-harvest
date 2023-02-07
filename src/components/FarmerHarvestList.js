@@ -24,7 +24,7 @@ function FarmerHarvestList(props) {
     >
       <Panel>
         <h1 className="myHarvestText">My Harvest</h1>
-        <div item xs={12} className="myHarvestList">
+        <div item="true" xs={12} className="myHarvestList">
           {harvests.map(harvest => (
             <Grid item xs={18} sm={3} className="harvestDiv" key={v4()}>
               <img

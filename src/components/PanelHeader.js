@@ -30,7 +30,7 @@ useEffect(() => {
 const handleMouseDown = () => setMouseDown(true)
 
 return (
-    <div className='panel_header' style={{height: '30px' , backgoundColor:'inherit', fontFamily: 'Helvetica'}}onMouseDown={handleMouseDown}>
+    <div className="panel_header" style={{height: '30px' , backgoundColor:'inherit', fontFamily: 'Helvetica'}}onMouseDown={handleMouseDown}>
       draggable
     
     </div>

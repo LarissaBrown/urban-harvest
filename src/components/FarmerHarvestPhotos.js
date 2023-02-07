@@ -14,10 +14,10 @@ export default function FarmerHarvestPhotos(props) {
 
   const unsplash = new Unsplash({
     //import Access_Key from './.env'
-    accessKey: "7LtZFhlWzGy0OPYYT0GVrfrXXt7yrVIsDzsPTvl93lk"
-    //...other fetch options
+    accessKey: "7LtZFhlWzGy0OPYYT0GVrfrXXt7yrVIsDzsPTvl93lk",
+    // ...other fetch options
     // `fetch` options to be sent with every request
-    //headers: { 'X-Custom-Header': 'foo' },
+    headers: { 'X-Custom-Header': 'foo' },
   });
 
   //syntax for searching photos
@@ -26,7 +26,7 @@ export default function FarmerHarvestPhotos(props) {
   const searchPhotos = async event => {
     event.preventDefault();
 
-    unsplash.search
+    await unsplash.search
       .photos(query)
       .then(toJson)
       .then(json => {

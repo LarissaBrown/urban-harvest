@@ -13,7 +13,7 @@ function HarvestList() {
   return (
     <div className="harvestMap">
       <h1 className="currentHarvestText">Current Available Harvests</h1>
-      <div item xs={12} className="harvestList">
+      <div item="true" xs={12} className="harvestList">
         {harvests.map(harvest => (
           <Harvest
             title={harvest.title}

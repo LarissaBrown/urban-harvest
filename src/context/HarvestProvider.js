@@ -5,7 +5,7 @@ export const HarvestContext = React.createContext();
 
 function HarvestProvider(props) {
 
-    const [initState, setInitState] = useState([
+    const [initState] = useState([
         { 
             title: 'Potatoes',
             body: 'These potatoes are fresh from the earth.', 
